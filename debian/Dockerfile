@@ -16,14 +16,11 @@ ENV SBT_VERSION ${SBT_VERSION:-1.3.3}
 
 
 #install curl
-RUN apk add --update \
-    curl
-#    && rm -rf /var/lib/apt/lists/*
-
-RUN apk add --update \
+'RUN apk add --update \
+    curl \
     dpkg
+'#    && rm -rf /var/cache/apk/*
 #    && rm -rf /var/lib/apt/lists/*
-
 
 
 # Install sbt
@@ -46,6 +43,8 @@ RUN \
 # Add and use user sbtuser
 RUN groupadd --gid 1001 sbtuser && useradd --gid 1001 --uid 1001 sbtuser --shell /bin/bash
 RUN chown -R sbtuser:sbtuser /opt
+RUN chown -R sbtuser:sbtuser ./target
+RUN chown -R sbtuser:sbtuser ./*/target
 RUN mkdir /home/sbtuser && chown -R sbtuser:sbtuser /home/sbtuser
 RUN mkdir /logs && chown -R sbtuser:sbtuser /logs
 USER sbtuser
