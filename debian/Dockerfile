@@ -16,7 +16,9 @@ ENV SBT_VERSION ${SBT_VERSION:-1.3.3}
 
 
 #install curl
-RUN apk --no-cache add curl
+RUN apk add --update \
+    curl \
+    && rm -rf /var/cache/apk/*
 
 # Install sbt
 RUN \
