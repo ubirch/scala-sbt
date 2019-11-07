@@ -17,12 +17,12 @@ ENV SBT_VERSION ${SBT_VERSION:-1.3.3}
 
 #install curl
 RUN apk add --update \
-    curl \
-    && rm -rf /var/lib/apt/lists/*
+    curl
+#    && rm -rf /var/lib/apt/lists/*
 
 RUN apk add --update \
-    dpkg \
-    && rm -rf /var/lib/apt/lists/*
+    dpkg
+#    && rm -rf /var/lib/apt/lists/*
 
 
 
