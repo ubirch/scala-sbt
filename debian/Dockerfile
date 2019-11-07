@@ -20,6 +20,11 @@ RUN apk add --update \
     curl \
     && rm -rf /var/cache/apk/*
 
+RUN apk add --update \
+    dpkg \
+    && rm -rf /var/cache/apk/*
+
+
 # Install sbt
 RUN \
   curl -L -o sbt-$SBT_VERSION.deb https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
