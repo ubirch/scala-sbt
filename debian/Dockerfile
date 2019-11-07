@@ -14,6 +14,10 @@ ENV SCALA_VERSION ${SCALA_VERSION:-2.13.1}
 ARG SBT_VERSION
 ENV SBT_VERSION ${SBT_VERSION:-1.3.3}
 
+
+#install curl
+RUN apk --no-cache add curl
+
 # Install sbt
 RUN \
   curl -L -o sbt-$SBT_VERSION.deb https://dl.bintray.com/sbt/debian/sbt-$SBT_VERSION.deb && \
